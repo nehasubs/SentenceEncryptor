@@ -1,0 +1,108 @@
+// -------------------------------------------------------------------------------------------------
+// Neha Subrahmanyam
+// 1.10.18
+// JuliusCaesar2.java
+// Take 2 on a program that encrypts a message with a specified shift 33-126
+// --------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+public class Main{ 
+  public static void main (String[]args){
+    
+    Scanner scan1= new Scanner (System.in);
+    Scanner scan2=new Scanner (System.in);
+    
+    int charValue;
+    int start_Program = 0;
+    int message_Length;
+    int newCharValue;
+    int loopedCharValue;
+    
+  
+System.out.println("              --------------------------- ");
+System.out.println("              ---------------------------");
+System.out.println("             || OPERATION JULIUS CAESAR ||");
+System.out.println("              --------------------------- ");
+System.out.println("              --------------------------- ");
+
+while(start_Program== 0){
+  charValue=0;
+  newCharValue=0; //if intilizing has to be reset put it in the loop
+  System.out.print("\n\nEnter a message to be encrypted: ");
+  String message= scan1.nextLine();
+  
+  System.out.print("Enter a shift value: ");
+  int shift= scan2.nextInt();
+  
+  message_Length = message.length();
+
+while (charValue<message_Length){
+  
+  char atSpot = message.charAt(charValue);
+  newCharValue =((int)atSpot + shift);
+
+  
+  if (newCharValue > 126 && atSpot != ' '){
+   loopedCharValue= (newCharValue-126)+32;
+   System.out.print((char)loopedCharValue);
+   charValue++;
+  }
+  
+  else if (newCharValue < 33 && atSpot != ' '){
+   loopedCharValue= 126-(32-newCharValue);
+   System.out.print((char)loopedCharValue);
+   charValue++;
+  }
+  
+  else if (atSpot == ' '){
+    System.out.print(" ");
+    charValue++;
+  }
+  
+  
+  else {
+  System.out.print((char)newCharValue);
+  charValue++;
+  }
+
+  
+}
+
+  System.out.print("\nDo you want to encrypt another message?(Y or N) ");
+  String reply= scan1.nextLine();
+ 
+  if (reply.equals("Y")){
+    start_Program=0;
+  }
+  
+  else { 
+    start_Program++; 
+  }
+
+  
+}
+}
+
+ 
+ 
+  }
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+
+
+  
+ 
